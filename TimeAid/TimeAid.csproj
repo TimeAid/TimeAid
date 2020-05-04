@@ -1,7 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net40;net472;netcoreapp3.1</TargetFrameworks>
+        <TargetFrameworks>net40;net472;netstandard1.0;netcoreapp3.1</TargetFrameworks>
+        <Title>TimeAid</Title>
+        <Authors>Wouter Lindenhof</Authors>
+        <Description>A collection of functions to split and merge periods of time</Description>
+        <Copyright>MIT</Copyright>
+        <PackageProjectUrl>https://github.com/TimeAid/TimeAid</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/TimeAid/TimeAid.git</RepositoryUrl>
+        <PackageTags>schedule;date;time;split;merge;calendar</PackageTags>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
 </Project>
