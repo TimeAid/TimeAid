@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeAid", "TimeAid\TimeAid.csproj", "{34086293-85B4-47CF-BEAF-1762F4515958}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeAid.Test", "TimeAid.Test\TimeAid.Test.csproj", "{C6250CE7-64BE-4D2B-A54A-252C43EB39E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34086293-85B4-47CF-BEAF-1762F4515958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34086293-85B4-47CF-BEAF-1762F4515958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34086293-85B4-47CF-BEAF-1762F4515958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34086293-85B4-47CF-BEAF-1762F4515958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6250CE7-64BE-4D2B-A54A-252C43EB39E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6250CE7-64BE-4D2B-A54A-252C43EB39E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6250CE7-64BE-4D2B-A54A-252C43EB39E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6250CE7-64BE-4D2B-A54A-252C43EB39E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
