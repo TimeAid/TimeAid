@@ -23,3 +23,12 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Publish NuGet
+      uses: rohith/publish-nuget@v2.4.0
+      with:
+        # Filepath of the project to be packaged, relative to root of repository
+        PROJECT_FILE_PATH: TimeAid/TimeAid.csproj
+        # NuGet package id, used for version detection & defaults to project name
+        PACKAGE_NAME: TimeAidWl
+        # API key to authenticate with NuGet server
+        NUGET_KEY: ${{secrets.TempWouter}}
