@@ -30,5 +30,6 @@ jobs:
         PROJECT_FILE_PATH: TimeAid/TimeAid.csproj
         # NuGet package id, used for version detection & defaults to project name
         PACKAGE_NAME: TimeAidWl
+        VERSION_STATIC: 1.0.0
         # API key to authenticate with NuGet server
         NUGET_KEY: ${{secrets.TempWouter}}
