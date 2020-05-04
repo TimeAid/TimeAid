@@ -6,12 +6,12 @@ namespace TimeAid.Test
 {
     public class SplitterTests_InputValidation
     {
-        private Splitter<Meeting> _splitter;
+        private Splitter<Meeting, int> _splitter;
 
         [SetUp]
         public void Setup()
         {
-            _splitter = new Splitter<Meeting>(
+            _splitter = new Splitter<Meeting, int>(
                 MeetingHelper.StartSelector,
                 MeetingHelper.EndSelector,
                 MeetingHelper.CreateClone);

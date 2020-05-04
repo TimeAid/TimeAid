@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace TimeAid
 {
-    public class ListMerger<T>
+    public class ListMerger<T, IntervalType> where IntervalType : IComparable
     {
-        private readonly ISplitter<T> _splitter;
+        private readonly ISplitter<T, IntervalType> _splitter;
 
-        public ListMerger(ISplitter<T> splitter)
+        public ListMerger(ISplitter<T, IntervalType> splitter)
         {
             _splitter = splitter;
         }

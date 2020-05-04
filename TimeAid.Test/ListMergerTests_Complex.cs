@@ -7,14 +7,14 @@ namespace TimeAid.Test
 {
     public class ListMergerTests_Complex
     {
-        private ListMerger<Meeting> sut;
-        private ISplitter<Meeting> _splitter;
+        private ListMerger<Meeting, int> sut;
+        private ISplitter<Meeting, int> _splitter;
 
         [SetUp]
         public void SetUp()
         {
-            _splitter = A.Fake<ISplitter<Meeting>>(x => x.Strict().Named("Merger"));
-            sut = new ListMerger<Meeting>(_splitter);
+            _splitter = A.Fake<ISplitter<Meeting, int>>(x => x.Strict().Named("Merger"));
+            sut = new ListMerger<Meeting, int>(_splitter);
         }
 
         [Test]

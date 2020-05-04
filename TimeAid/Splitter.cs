@@ -2,13 +2,13 @@
 
 namespace TimeAid
 {
-    public class Splitter<T> : ISplitter<T>
+    public class Splitter<T,IntervalType> : ISplitter<T, IntervalType> where IntervalType : IComparable
     {
-        private readonly TimeFunc<T> _startFunc;
-        private readonly TimeFunc<T> _endFunc;
-        private readonly CloneSplitFunc<T> _clone;
+        private readonly TimeFunc<T, IntervalType> _startFunc;
+        private readonly TimeFunc<T, IntervalType> _endFunc;
+        private readonly CloneSplitFunc<T, IntervalType> _clone;
 
-        public Splitter(TimeFunc<T> startFunc, TimeFunc<T> endFunc, CloneSplitFunc<T> clone)
+        public Splitter(TimeFunc<T, IntervalType> startFunc, TimeFunc<T, IntervalType> endFunc, CloneSplitFunc<T, IntervalType> clone)
         {
             _startFunc = startFunc;
             _endFunc = endFunc;
@@ -23,22 +23,22 @@ namespace TimeAid
             var oldPeriod = CreatePeriod(oldItem);
             var newPeriod = CreatePeriod(newItem);
 
-            if (oldPeriod.End < oldPeriod.Start)
+            if (oldPeriod.End.CompareTo(oldPeriod.Start) < 0)
             {
                 throw new ArgumentException("End cannot occur before start", nameof(oldItem));
             }
 
-            if (newPeriod.End < newPeriod.Start)
+            if (newPeriod.End.CompareTo(newPeriod.Start) < 0)
             {
                 throw new ArgumentException("End cannot occur before start", nameof(newItem));
             }
 
-            if (newPeriod.Start <= oldPeriod.Start && newPeriod.End >= oldPeriod.End)
+            if (newPeriod.Start.CompareTo(oldPeriod.Start) <= 0 && newPeriod.End.CompareTo(oldPeriod.End) >= 0)
             {
                 return new[] {new SplitItem<T>(newItem, newItem)};
             }
 
-            if (oldPeriod.End <= newPeriod.Start)
+            if (oldPeriod.End.CompareTo(newPeriod.Start) <= 0)
             {
                 return new[]
                 {
@@ -47,7 +47,7 @@ namespace TimeAid
                 };
             }
 
-            if (newPeriod.End <= oldPeriod.Start)
+            if (newPeriod.End.CompareTo(oldPeriod.Start) <= 0)
             {
                 return new[]
                 {
@@ -56,7 +56,7 @@ namespace TimeAid
                 };
             }
 
-            if (newPeriod.Start > oldPeriod.Start && newPeriod.End < oldPeriod.End)
+            if (newPeriod.Start.CompareTo(oldPeriod.Start) > 0 && newPeriod.End.CompareTo(oldPeriod.End) < 0)
             {
                 return new[]
                 {
@@ -66,7 +66,7 @@ namespace TimeAid
                 };
             }
 
-            if (newPeriod.Start < oldPeriod.End && newPeriod.Start > oldPeriod.Start)
+            if (newPeriod.Start.CompareTo(oldPeriod.End) < 0 && newPeriod.Start.CompareTo(oldPeriod.Start) > 0)
             {
                 return new[]
                 {
@@ -75,7 +75,7 @@ namespace TimeAid
                 };
             }
 
-            if (newPeriod.End > oldPeriod.Start)
+            if (newPeriod.End.CompareTo(oldPeriod.Start) > 0)
             {
                 return new[]
                 {
@@ -88,9 +88,9 @@ namespace TimeAid
                 $"An unsupported period combination was detected: OldPeriod ({oldPeriod.Start}-{oldPeriod.End}) and newPeriod({newPeriod.Start}-{newPeriod.End})");
         }
 
-        private Period CreatePeriod(T @event)
+        private Period<IntervalType> CreatePeriod(T @event)
         {
-            return new Period(_startFunc(@event), _endFunc(@event));
+            return new Period<IntervalType>(_startFunc(@event), _endFunc(@event));
         }
     }
 }

@@ -1,14 +1,16 @@
+using System;
+
 namespace TimeAid
 {
-    public class Period
+    public class Period<T> where T : IComparable
     {
-        public Period(int start, int end)
+        public Period(T start, T end)
         {
             Start = start;
             End = end;
         }
 
-        public int Start { get; }
-        public int End { get; }
+        public T Start { get; }
+        public T End { get; }
     }
 }

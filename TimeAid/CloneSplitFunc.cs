@@ -1,4 +1,7 @@
+using System;
+
 namespace TimeAid
 {
-    public delegate T CloneSplitFunc<T>(T original, int newStart, int newEnd);
+    public delegate T CloneSplitFunc<T, in IntervalType>(T original, IntervalType newStart, IntervalType newEnd)
+        where IntervalType : IComparable;
 }
